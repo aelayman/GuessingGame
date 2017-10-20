@@ -4,8 +4,11 @@ $(window).on("load", function() {
         respondGuess();        
      });
      $(document).keypress(function(e) {
-        if(e.which == 13) {
-            respondGuess();
+        if (e.which == 13) {
+            if (!gameData.gameOver()) {
+                respondGuess();
+                
+            }
         }
     });
 
@@ -24,12 +27,16 @@ $(window).on("load", function() {
             $("#game-subtitle").text("Guess Lower.");
             
         }
+        var guessNum = gameData.getGuessNum();
+        $("#guess" + guessNum).text(gameData.playersGuess);
+        
         
     }
     $("#reset").on("click", function() {
         gameData = new Game();
         $("#game-title").text("Guessing Game!");
         $("#game-subtitle").text("Guess a number between 1-100!");
+        $(".guess").text("-");
         
     });
 

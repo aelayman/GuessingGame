@@ -68,6 +68,10 @@ Game.prototype.gameOver = function() {
     return (this.pastGuesses.length >= 5 || this.playersGuess === this.winningNumber);
 };
 
+Game.prototype.getGuessNum = function() {
+    return this.pastGuesses.length;
+};
+
 var generateWinningNumber = function() {
     var randomNum = Math.random() * 100;
     var roundedNumber = Math.ceil(randomNum);
