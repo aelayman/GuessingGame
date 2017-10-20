@@ -25,7 +25,7 @@ Game.prototype.checkGuess = function() {
     } 
     this.pastGuesses.push(this.playersGuess);
     if (this.pastGuesses.length === 5) {
-        return "You Lose."
+        return "You Lose.";
     }
     if (this.difference() < 10) {
         return "You're burning up!";
@@ -62,6 +62,10 @@ Game.prototype.isLower = function() {
 Game.prototype.provideHint = function() {
     var randomArr = [generateWinningNumber(), generateWinningNumber(), this.winningNumber];    
     return shuffle(randomArr);
+};
+
+Game.prototype.gameOver = function() {
+    return (this.pastGuesses.length >= 5 || this.playersGuess === this.winningNumber);
 };
 
 var generateWinningNumber = function() {
