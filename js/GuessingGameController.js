@@ -26,6 +26,22 @@ $(window).on("load", function() {
         }
         
     }
+    $("#reset").on("click", function() {
+        gameData = new Game();
+        $("#game-title").text("Guessing Game!");
+        $("#game-subtitle").text("Guess a number between 1-100!");
+        
+    });
+
+    $("#hint").on("click", function() {
+        var currentHints = gameData.provideHint();
+        $("#game-title").text("The winning number is " + currentHints[0] + ", " + currentHints[1] + ", or " + currentHints [2]);
+
+
+    });
+    
+
+
      
 
 
