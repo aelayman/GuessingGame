@@ -18,6 +18,7 @@ Game.prototype.playersGuessSubmission = function(num) {
 
 Game.prototype.checkGuess = function() {
     if (this.playersGuess === this.winningNumber) {
+        this.pastGuesses.push(this.playersGuess);
         return "You Win!";
     } 
     if (this.pastGuesses.indexOf(this.playersGuess) > -1) {

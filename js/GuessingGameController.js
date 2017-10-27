@@ -37,6 +37,8 @@ $(window).on("load", function() {
         $("#game-title").text("Guessing Game!");
         $("#game-subtitle").text("Guess a number between 1-100!");
         $(".guess").text("-");
+        $("#submit, #hint").prop("disabled", false);            
+        
         
     });
 
